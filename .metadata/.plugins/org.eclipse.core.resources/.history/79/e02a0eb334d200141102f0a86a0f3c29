@@ -1,0 +1,184 @@
+package aiproject.player;
+
+import java.awt.Color;
+import java.awt.Graphics;
+
+import aiproject.Config;
+import aiproject.game.GraphicObject;
+import aiproject.game.GraphicsComponent;
+
+public abstract class Player extends GraphicObject {
+	private final int yLimit;
+	private int health = Config.STARTING_HEALTH;
+	private GraphicsComponent game;
+	private boolean frozen, shield, laserCool, shieldCool;
+	private boolean isPlayer1;
+
+	public Player(int width, int height, int yLimit, boolean isPlayer1) {
+		super(0, 0, width, height);
+		this.yLimit = yLimit;
+		this.setPlayer1(isPlayer1);
+	}
+
+	private void getInside() {
+		if (getY() < 0)
+			setY(0);
+		if (getY() + getHeight() > yLimit) {
+			setY(yLimit - getHeight());
+		}
+	}
+
+	public void setY(int y) {
+		if (!frozen) {
+			super.setY(y);
+			getInside();
+		}
+	}
+
+	public void setGame(GraphicsComponent game) {
+		this.game = game;
+	}
+
+	public void spawnBullet() {
+		if (!(frozen || laserCool)) {
+			game.addBullet(getY() + getHeight() / 2, this);
+			new Thread(new Runnable() {
+
+				@Override
+				public void run() {
+					frozen = true;
+					try {
+						Thread.sleep(Config.BULLET_STUN_TIME);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+					frozen = false;
+				}
+
+			}).start();
+			new Thread(new Runnable() {
+
+				@Override
+				public void run() {
+					laserCool = true;
+					try {
+						Thread.sleep(Config.BULLET_COOLDOWN_TIME);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+					laserCool = false;
+				}
+
+			}).start();
+
+		}
+	}
+
+	@Override
+	public boolean draw(Graphics gr) {
+		if (frozen) {
+			gr.setColor(Color.BLUE);
+		} else {
+			gr.setColor(Color.BLACK);
+		}
+		gr.fillRect(getX(), getY(), getWidth(), getHeight());
+		if (shieldCool) {
+			gr.setColor(Color.GRAY);
+			gr.fillRect(getX() - 10, getY(), 10, getHeight());
+			gr.fillRect(getX() + getWidth(), getY(), 10, getHeight());
+		} else if (shield) {
+			gr.setColor(Color.YELLOW);
+			gr.fillRect(getX() - 10, getY(), 10, getHeight());
+			gr.fillRect(getX() + getWidth(), getY(), 10, getHeight());
+		} else if (laserCool) {
+			gr.setColor(Color.RED);
+			gr.fillRect(getX(), getY() - 10, getWidth(), 10);
+			gr.fillRect(getX(), getY() + getHeight(), getWidth(), 10);
+
+		}
+		return true;
+	}
+
+	public void shield() {
+		if (!(frozen || shieldCool)) {
+			new Thread(new Runnable() {
+
+				@Override
+				public void run() {
+					shield = true;
+					try {
+						Thread.sleep(Config.SHIELD_DURATION);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+					shield = false;
+					shieldCool = true;
+					try {
+						Thread.sleep(Config.SHIELD_COOLDOWN_TIME);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+					shieldCool = false;
+				}
+
+			}).start();
+			new Thread(new Runnable() {
+
+				@Override
+				public void run() {
+					frozen = true;
+					try {
+						Thread.sleep(Config.SHIELD_STUN_TIME);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+					frozen = false;
+				}
+
+			}).start();
+		}
+	}
+
+	public void hit() {
+		if (!shield) {
+			health--;
+			new Thread(new Runnable() {
+
+				@Override
+				public void run() {
+					frozen = true;
+					try {
+						Thread.sleep(Config.HIT_STUN_TIME);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+					frozen = false;
+				}
+
+			}).start();
+			if (health < 1) {
+				game.end();
+			}
+		}
+	}
+
+	public int getHealth() {
+		return health;
+	}
+
+	public GraphicsComponent getGame() {
+		return game;
+	}
+
+	public int getYLimit() {
+		return yLimit;
+	}
+
+	public boolean isPlayer1() {
+		return isPlayer1;
+	}
+
+	public void setPlayer1(boolean isPlayer1) {
+		this.isPlayer1 = isPlayer1;
+	}
+}

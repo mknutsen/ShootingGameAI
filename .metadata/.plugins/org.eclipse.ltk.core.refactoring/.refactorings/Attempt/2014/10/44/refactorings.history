@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename local variable &apos;scan&apos; in &apos;com.cougaarsoftware.serialcommunication.sensor.BaseConverter.main(...)&apos; to &apos;scanner&apos;&#x0D;&#x0A;- Original project: &apos;Attempt&apos;&#x0D;&#x0A;- Original element: &apos;com.cougaarsoftware.serialcommunication.sensor.BaseConverter.main(String[]).scan&apos;&#x0D;&#x0A;- Renamed element: &apos;scan&apos;&#x0D;&#x0A;- Update references to refactored element" description="Rename local variable &apos;scan&apos;" id="org.eclipse.jdt.ui.rename.local.variable" input="/src&lt;com.cougaarsoftware.serialcommunication.sensor{BaseConverter.java[BaseConverter~main~\[QString;@scan!163!200!171!174!QScanner;!0!false" name="scanner" references="true" stamp="1414373718351" version="1.0"/>
+</session>

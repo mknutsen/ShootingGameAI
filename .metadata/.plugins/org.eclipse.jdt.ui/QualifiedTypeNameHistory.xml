@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="pieces.Piece"/>
+<fullyQualifiedTypeName name="java.util.Collection"/>
+<fullyQualifiedTypeName name="board.Coordinate"/>
+<fullyQualifiedTypeName name="pieces.Pawn"/>
+<fullyQualifiedTypeName name="pieces.Color"/>
+<fullyQualifiedTypeName name="pieces.Rook"/>
+<fullyQualifiedTypeName name="java.awt.event.MouseMotionListener"/>
+<fullyQualifiedTypeName name="gui.Callback"/>
+<fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
+<fullyQualifiedTypeName name="javax.swing.Popup"/>
+<fullyQualifiedTypeName name="javax.swing.PopupFactory"/>
+<fullyQualifiedTypeName name="javax.swing.JFrame"/>
+<fullyQualifiedTypeName name="player.MousePlayer"/>
+<fullyQualifiedTypeName name="game.Component"/>
+<fullyQualifiedTypeName name="javax.swing.JPanel"/>
+<fullyQualifiedTypeName name="game.GraphicObject"/>
+<fullyQualifiedTypeName name="java.awt.Color"/>
+<fullyQualifiedTypeName name="game.Config"/>
+<fullyQualifiedTypeName name="player.Player"/>
+<fullyQualifiedTypeName name="aiproject.player.ai.AvoidanceAI"/>
+<fullyQualifiedTypeName name="aiproject.player.Player"/>
+<fullyQualifiedTypeName name="aiproject.player.ai.AIPlayer"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="java.util.Arrays"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="javax.swing.event.ListSelectionEvent"/>
+<fullyQualifiedTypeName name="java.lang.reflect.Array"/>
+<fullyQualifiedTypeName name="aiproject.player.ai.procedures.AvoidBullets"/>
+<fullyQualifiedTypeName name="java.awt.Font"/>
+<fullyQualifiedTypeName name="aiproject.player.ai.procedures.Follow"/>
+<fullyQualifiedTypeName name="aiproject.Config"/>
+<fullyQualifiedTypeName name="aiproject.player.ai.procedures.Avoidance"/>
+<fullyQualifiedTypeName name="aiproject.player.ai.decisiontree.BasicDecisionTree"/>
+<fullyQualifiedTypeName name="aiproject.player.ai.procedures.ProcedureArchitype"/>
+<fullyQualifiedTypeName name="aiproject.player.ai.procedures.ShieldContinuous"/>
+<fullyQualifiedTypeName name="aiproject.player.ai.procedures.ShootContinuous"/>
+<fullyQualifiedTypeName name="java.awt.event.KeyEvent"/>
+<fullyQualifiedTypeName name="aiproject.game.GraphicsDriver"/>
+<fullyQualifiedTypeName name="aiproject.game.GraphicsComponent"/>
+<fullyQualifiedTypeName name="aiproject.player.ai.ProcedureTester"/>
+</qualifiedTypeNameHistroy>

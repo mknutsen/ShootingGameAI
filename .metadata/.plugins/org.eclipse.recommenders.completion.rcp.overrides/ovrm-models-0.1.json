@@ -1,0 +1,22 @@
+{
+  "C:\\Users\\Max\\OneDrive\\Work\\Attempt\\src": {
+    "location": "C:\\Users\\Max\\OneDrive\\Work\\Attempt\\src",
+    "status": "UNRESOLVED",
+    "error": "No class path info available for \u0027C:\\Users\\Max\\OneDrive\\Work\\Attempt\\src\u0027. Skipped."
+  },
+  "C:\\Users\\Max\\SkyDrive\\Work\\AIThing\\src": {
+    "location": "C:\\Users\\Max\\SkyDrive\\Work\\AIThing\\src",
+    "status": "UNRESOLVED",
+    "error": "No class path info available for \u0027C:\\Users\\Max\\SkyDrive\\Work\\AIThing\\src\u0027. Skipped."
+  },
+  "C:\\Users\\Max\\OneDrive\\Work\\AIThing\\src": {
+    "location": "C:\\Users\\Max\\OneDrive\\Work\\AIThing\\src",
+    "status": "UNRESOLVED",
+    "error": "No class path info available for \u0027C:\\Users\\Max\\OneDrive\\Work\\AIThing\\src\u0027. Skipped."
+  },
+  "C:\\Program Files\\Java\\jre7\\lib\\rt.jar": {
+    "coordinate": "jre:jre:zip:ovrm:1.0.0",
+    "location": "C:\\Program Files\\Java\\jre7\\lib\\rt.jar",
+    "status": "RESOLVED"
+  }
+}

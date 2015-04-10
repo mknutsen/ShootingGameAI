@@ -1,0 +1,32 @@
+1426999756651	Rename type 'Graphics'
+1427000325527	Rename local variable 'charles'
+1427001433997	Rename type variable 'T'
+1427001472822	Rename type variable 'J'
+1427055395525	Delete element
+1427059269622	Rename field 'loc'
+1427059718262	Delete element
+1427072202389	Move compilation unit
+1427072209331	Copy compilation unit
+1427072374344	Rename local variable 'location'
+1427079759207	Rename field 'coolingDown'
+1427116871297	Rename package 'ai'
+1427116994699	Move compilation unit
+1427117020937	Rename package 'game'
+1427117039282	Rename package 'player'
+1427117293154	Rename type 'DecisionTreeBasic'
+1427117556538	Move method
+1427118070395	Delete element
+1427118127847	Move compilation unit
+1427118468102	Move compilation unit
+1427118494836	Rename type 'StateEnum'
+1427118786662	Rename method 'discoverState'
+1427130302636	Rename type 'AvoidanceAI'
+1427148270951	Rename method 'sort'
+1427148860404	Rename method 'sortX'
+1427159973548	Rename type 'ShieldandShoot'
+1427199615208	Rename type 'Shoot'
+1427199628451	Rename type 'Shield'
+1427202129791	Encapsulate field 'isPlayer1'
+1427218808397	Rename method 'getIsOn'
+1427220127384	Rename type 'Test'
+1427221409307	Encapsulate field 'player'

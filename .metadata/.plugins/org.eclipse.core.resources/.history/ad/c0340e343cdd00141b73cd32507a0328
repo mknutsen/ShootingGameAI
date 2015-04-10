@@ -1,0 +1,20 @@
+package aiproject.player.ai.procedures.movement;
+
+import aiproject.player.ai.AIPlayer;
+import aiproject.player.ai.procedures.ProcedureArchitype;
+
+public class Avoidance extends ProcedureArchitype {
+
+	public Avoidance(AIPlayer player) {
+		super(player);
+	}
+	@Override
+	public void run() {
+		while (isRoutineOn()) {
+			getPlayer().setGoal(getPlayer().getOpponent().getY()
+					+ getPlayer().getOpponent().getHeight() / 2 > (getPlayer()
+					.getWindowHeight() / 2) ? 0 : getPlayer().getWindowHeight());
+			chill();
+		}
+	}
+}

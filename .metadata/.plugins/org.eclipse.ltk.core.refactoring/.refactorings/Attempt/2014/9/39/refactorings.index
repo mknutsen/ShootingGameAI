@@ -1,0 +1,8 @@
+1411595095606	Rename type 'Serial4JArduino'
+1411595331818	Rename field 'x'
+1411595957368	Rename local variable 'loc'
+1411596691364	Move method
+1411597414032	Move type
+1411676147391	Rename type 'SerialConnection'
+1411676498865	Move compilation units
+1411839319084	Rename local variable 'port'

@@ -77,6 +77,11 @@ public class GraphicsComponent extends JPanel {
 			gr.drawString("ENGAGE", 100, 450);
 			gr.setFont(temp);
 		}
+		try {
+			Thread.sleep(10);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 		repaint();
 	}
 

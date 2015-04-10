@@ -8,21 +8,21 @@ import java.util.List;
 import aiproject.Config;
 
 public class Bullet extends GraphicObject implements Comparable<GraphicObject> {
-	private int move;
-	private final int xLimit;
+	private int movePer10Ms;
+	private final int windowWidth;
 	private int dir;
 
-	public Bullet(int x, int y, int dir, final int xLimit) {
+	public Bullet(int x, int y, int dir, final int windowWidth) {
 		super(x, y, Config.BULLET_WIDTH, Config.BULLET_HEIGHT, true);
-		this.xLimit = xLimit;
+		this.windowWidth = windowWidth;
 		this.dir = dir;
-		move = dir * Config.BULLET_SPEED_PER_10_MS;
+		movePer10Ms = dir * Config.BULLET_SPEED_PER_10_MS;
 		new Thread(new Runnable() {
 
 			@Override
 			public void run() {
-				while (getX() > 0 && getX() < xLimit) {
-					setX(getX() + move);
+				while (getX() > 0 && getX() < windowWidth) {
+					setX(getX() + movePer10Ms);
 					try {
 						Thread.sleep(10);
 					} catch (InterruptedException e) {
@@ -41,7 +41,7 @@ public class Bullet extends GraphicObject implements Comparable<GraphicObject> {
 
 	@Override
 	public boolean draw(Graphics gr) {
-		if (getX() < xLimit && getX() > 0) {
+		if (getX() < windowWidth && getX() > 0) {
 			gr.setColor(Color.RED);
 			gr.fillRect(getX(), getY(), getWidth(), getHeight());
 			return true;

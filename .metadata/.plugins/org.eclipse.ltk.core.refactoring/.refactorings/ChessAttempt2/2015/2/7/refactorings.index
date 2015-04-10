@@ -1,0 +1,12 @@
+1423419874395	Delete element
+1423419889730	Move compilation unit
+1423421748077	Rename method 'vertical'
+1423421773825	Rename local variable 'dir'
+1423421778845	Rename local variable 'dir'
+1423600703573	Rename field 'LENGTH'
+1423600711649	Rename field 'HEIGHT'
+1423602222465	Rename local variable 'temp'
+1423695303005	Encapsulate field 'currentLocation'
+1423751065964	Rename method 'setCurrentLocation'
+1423757507982	Rename field 'callback'
+1423757516999	Rename method 'invoke'

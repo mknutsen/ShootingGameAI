@@ -1,0 +1,52 @@
+{
+  "C:\\Users\\Max\\OneDrive\\Work\\Attempt\\lib\\jssc.jar": {
+    "location": "C:\\Users\\Max\\OneDrive\\Work\\Attempt\\lib\\jssc.jar",
+    "status": "UNRESOLVED",
+    "error": "No call model found for \u0027C:\\Users\\Max\\OneDrive\\Work\\Attempt\\lib\\jssc.jar\u0027. Neither fingerprint \u0027a714a0495950ae3bd3f4b1fedbbecd16bbb419d4\u0027 nor symbolic name \u0027jssc\u0027 are known."
+  },
+  "C:\\Program Files\\Java\\jre7\\lib\\rt.jar": {
+    "coordinate": "jre:jre:zip:call:1.0.0",
+    "location": "C:\\Program Files\\Java\\jre7\\lib\\rt.jar",
+    "status": "RESOLVED"
+  },
+  "C:\\Users\\Max\\OneDrive\\Work\\Attempt\\src": {
+    "location": "C:\\Users\\Max\\OneDrive\\Work\\Attempt\\src",
+    "status": "UNRESOLVED",
+    "error": "No class path info available for \u0027C:\\Users\\Max\\OneDrive\\Work\\Attempt\\src\u0027. Skipped."
+  },
+  "C:\\Users\\Max\\SkyDrive\\Work\\Attempt\\src": {
+    "location": "C:\\Users\\Max\\SkyDrive\\Work\\Attempt\\src",
+    "status": "UNRESOLVED",
+    "error": "No class path info available for \u0027C:\\Users\\Max\\SkyDrive\\Work\\Attempt\\src\u0027. Skipped."
+  },
+  "C:\\Users\\Max\\SkyDrive\\Work\\Attempt\\lib\\jssc.jar": {
+    "location": "C:\\Users\\Max\\SkyDrive\\Work\\Attempt\\lib\\jssc.jar",
+    "status": "UNRESOLVED",
+    "error": "No call model found for \u0027C:\\Users\\Max\\SkyDrive\\Work\\Attempt\\lib\\jssc.jar\u0027. Neither fingerprint \u0027a714a0495950ae3bd3f4b1fedbbecd16bbb419d4\u0027 nor symbolic name \u0027jssc\u0027 are known."
+  },
+  "C:\\Users\\Max\\OneDrive\\Work\\Attempt\\lib\\RXTXcomm.jar": {
+    "location": "C:\\Users\\Max\\OneDrive\\Work\\Attempt\\lib\\RXTXcomm.jar",
+    "status": "UNRESOLVED",
+    "error": "No call model found for \u0027C:\\Users\\Max\\OneDrive\\Work\\Attempt\\lib\\RXTXcomm.jar\u0027. Neither fingerprint \u00274f7501841eb130c1f5a5a2abf5ee20c1210d44e2\u0027 nor symbolic name \u0027RXTXcomm\u0027 are known."
+  },
+  "C:\\Users\\Max\\OneDrive\\Work\\ChessAttempt2\\src": {
+    "location": "C:\\Users\\Max\\OneDrive\\Work\\ChessAttempt2\\src",
+    "status": "UNRESOLVED",
+    "error": "No class path info available for \u0027C:\\Users\\Max\\OneDrive\\Work\\ChessAttempt2\\src\u0027. Skipped."
+  },
+  "C:\\Users\\Max\\SkyDrive\\Work\\ChessAttempt2\\src": {
+    "location": "C:\\Users\\Max\\SkyDrive\\Work\\ChessAttempt2\\src",
+    "status": "UNRESOLVED",
+    "error": "No class path info available for \u0027C:\\Users\\Max\\SkyDrive\\Work\\ChessAttempt2\\src\u0027. Skipped."
+  },
+  "C:\\Users\\Max\\OneDrive\\Work\\AIThing\\src": {
+    "location": "C:\\Users\\Max\\OneDrive\\Work\\AIThing\\src",
+    "status": "UNRESOLVED",
+    "error": "No class path info available for \u0027C:\\Users\\Max\\OneDrive\\Work\\AIThing\\src\u0027. Skipped."
+  },
+  "C:\\Users\\Max\\SkyDrive\\Work\\AIThing\\src": {
+    "location": "C:\\Users\\Max\\SkyDrive\\Work\\AIThing\\src",
+    "status": "UNRESOLVED",
+    "error": "No class path info available for \u0027C:\\Users\\Max\\SkyDrive\\Work\\AIThing\\src\u0027. Skipped."
+  }
+}

@@ -8,7 +8,7 @@ import aiproject.game.GraphicObject;
 import aiproject.game.GraphicsComponent;
 
 public abstract class Player extends GraphicObject {
-	private final int yLimit;
+	private final int windowHeight;
 	private int health = Config.STARTING_HEALTH;
 	private GraphicsComponent game;
 	private boolean frozen, shield, laserCool, shieldCool;
@@ -17,7 +17,7 @@ public abstract class Player extends GraphicObject {
 
 	public Player(int width, int height, int yLimit, boolean isPlayer1) {
 		super(0, 0, width, height, true);
-		this.yLimit = yLimit;
+		this.windowHeight = yLimit;
 		this.setPlayer1(isPlayer1);
 		goalY = getY();
 		new Thread(new Runnable() {
@@ -49,8 +49,8 @@ public abstract class Player extends GraphicObject {
 	private void getInside() {
 		if (getY() < 0)
 			setY(0);
-		if (getY() + getHeight() > yLimit) {
-			setY(yLimit - getHeight());
+		if (getY() + getHeight() > windowHeight) {
+			setY(windowHeight - getHeight());
 		}
 	}
 
@@ -196,8 +196,8 @@ public abstract class Player extends GraphicObject {
 		return game;
 	}
 
-	public int getYLimit() {
-		return yLimit;
+	public int getWindowHeight() {
+		return windowHeight;
 	}
 
 	public boolean isPlayer1() {
@@ -230,7 +230,7 @@ public abstract class Player extends GraphicObject {
 
 	public void setGoal(int goalY) {
 		this.goalY = goalY > 0 ? goalY : 0;
-		this.goalY = this.goalY < yLimit ? this.goalY : yLimit;
+		this.goalY = this.goalY < windowHeight ? this.goalY : windowHeight;
 		if (this instanceof KeyboardPlayer) {
 			System.out.println(this.goalY);
 		}

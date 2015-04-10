@@ -1,6 +1,7 @@
 package aiproject.player.ai;
 
-import aiproject.player.ai.procedures.*;
+import aiproject.player.ai.procedures.movement.AvoidBullets;
+import aiproject.player.ai.procedures.shield.ShieldContinuous;
 
 public class ProcedureTester extends AIPlayer {
 

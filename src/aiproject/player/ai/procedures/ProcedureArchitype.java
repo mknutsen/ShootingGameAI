@@ -5,22 +5,22 @@ import aiproject.player.ai.AIPlayer;
 
 public abstract class ProcedureArchitype extends Thread {
 	private AIPlayer player;
-	private boolean on;
+	private boolean routineIsOn;
 
 	public ProcedureArchitype(AIPlayer player) {
 		this.player = (player);
-		on = true;
+		routineIsOn = true;
 	}
 
-	public boolean isOn() {
-		return on;
+	public boolean isRoutineOn() {
+		return routineIsOn;
 	}
 
-	public void turnOff() {
-		on = false;
+	public void turnRoutineOff() {
+		routineIsOn = false;
 	}
 
-	void chill() {
+	protected void chill() {
 		try {
 			Thread.sleep(Config.AI_CHILL_TIME);
 		} catch (InterruptedException e) {

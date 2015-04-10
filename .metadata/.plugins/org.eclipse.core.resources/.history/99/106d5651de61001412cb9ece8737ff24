@@ -1,0 +1,47 @@
+package com.cougaarsoftware.serialcommunication.demo;
+
+import com.cougaarsoftware.serialcommunication.Motor;
+import com.cougaarsoftware.serialcommunication.SerialCommunicator;
+import com.cougaarsoftware.serialcommunication.SerialCommunicatorFactory;
+import com.cougaarsoftware.serialcommunication.pins.ArduinoUnoDigitalPin;
+
+public class FourWireStepper {
+
+	/**
+	 * @param args
+	 * @throws InterruptedException
+	 */
+	public static void main(String[] args) throws InterruptedException {
+		SerialCommunicatorFactory.setDebug(true);
+		Motor motor = new Motor("COM10", 500, ArduinoUnoDigitalPin.Pin8,
+				ArduinoUnoDigitalPin.Pin9, ArduinoUnoDigitalPin.Pin10,
+				ArduinoUnoDigitalPin.Pin11) {
+
+			@Override
+			public void forwards(int speed) {
+				System.out.println("forwards");
+				getSerialPort().printMessage(
+						String.format("%s,%d,", getName(), speed));
+			}
+
+			@Override
+			public void backwards(int speed) {
+				System.out.println("back");
+				getSerialPort().printMessage(
+						String.format("%s,%d,", getName(), -1 * speed));
+			}
+
+			@Override
+			public void stop() {
+				System.out.println("stop");
+				getSerialPort().printMessage(String.format("%s,", getName()));
+			}
+
+		};
+		Thread.sleep(5000);
+		motor.forwards(20);
+		Thread.sleep(5000);
+		motor.stop();
+	}
+
+}

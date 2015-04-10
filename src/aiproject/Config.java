@@ -8,12 +8,12 @@ public final class Config {
 	public static final int SHIELD_COOLDOWN_TIME = 500;
 	public static final int SHIELD_DURATION = 1000;
 	public static final int SHIELD_STUN_TIME = 0;
-	public static final int BULLET_SPEED_PER_10_MS = 4;
+	public static final int BULLET_SPEED_PER_10_MS = 7;
 	public static final int STARTING_HEALTH = 10;
 	public static final int HIT_STUN_TIME = 0;
 	public static final int DEFAULT_PLAYER_WIDTH = 20;
 	public static final int DEFAULT_PLAYER_HEIGHT = 230;
-	public static final int MOVE_PER_10_MS = 10;
+	public static final int MOVE_PER_10_MS = 20;
 	// MOUSE PLAYER
 	// KB PLAYER
 	public static final int KB_MOVE_PER_CLICK = 200;

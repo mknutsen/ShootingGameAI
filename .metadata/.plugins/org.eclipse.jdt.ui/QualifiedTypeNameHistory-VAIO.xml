@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="org.sintef.jarduino.comm.NativeLibUtil"/>
+<fullyQualifiedTypeName name="gnu.io.SerialPortEventListener"/>
+<fullyQualifiedTypeName name="jssc.SerialPort"/>
+<fullyQualifiedTypeName name="jssc.SerialPortEventListener"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="java.util.Queue"/>
+<fullyQualifiedTypeName name="gnu.io.SerialPort"/>
+<fullyQualifiedTypeName name="com.cougaarsoftware.serialcommunication.SerialConnectionRXTX"/>
+<fullyQualifiedTypeName name="java.util.Hashtable"/>
+<fullyQualifiedTypeName name="com.cougaarsoftware.serialcommunication.SerialConnectionJSSC"/>
+</qualifiedTypeNameHistroy>

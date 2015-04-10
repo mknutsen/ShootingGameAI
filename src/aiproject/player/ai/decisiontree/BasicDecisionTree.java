@@ -2,15 +2,19 @@ package aiproject.player.ai.decisiontree;
 
 import aiproject.Config;
 import aiproject.player.ai.AIPlayer;
-import aiproject.player.ai.procedures.AvoidBullets;
-import aiproject.player.ai.procedures.Avoidance;
-import aiproject.player.ai.procedures.Follow;
-import aiproject.player.ai.procedures.ProcedureArchitype;
-import aiproject.player.ai.procedures.ShieldContinuous;
-import aiproject.player.ai.procedures.ShootContinuous;
+import aiproject.player.ai.procedures.movement.AvoidBullets;
+import aiproject.player.ai.procedures.movement.Avoidance;
+import aiproject.player.ai.procedures.movement.Follow;
+import aiproject.player.ai.procedures.movement.MovementArchitype;
+import aiproject.player.ai.procedures.shield.ShieldContinuous;
+import aiproject.player.ai.procedures.shield.ShieldingArchitype;
+import aiproject.player.ai.procedures.shoot.ShootContinuous;
+import aiproject.player.ai.procedures.shoot.ShootingArchitype;
 
 public class BasicDecisionTree extends AIPlayer {
-	private ProcedureArchitype shield, move, shoot;
+	private ShieldingArchitype shield;
+	private ShootingArchitype shoot;
+	private MovementArchitype move;
 	private State previousState;
 
 	public BasicDecisionTree(int width, int height, int yLimit, boolean player1) {
@@ -29,12 +33,12 @@ public class BasicDecisionTree extends AIPlayer {
 				case SHOOTING:
 					System.out.println("SHOOTING");
 					if (move != null)
-						move.turnOff();
+						move.turnRoutineOff();
 					move = new AvoidBullets(this);
 					move.start();
 
 					if (shoot != null) {
-						shoot.turnOff();
+						shoot.turnRoutineOff();
 					}
 					if (Config.BULLET_STUN_TIME < 20) {
 						System.out.println("shooting back");
@@ -45,20 +49,20 @@ public class BasicDecisionTree extends AIPlayer {
 				case ATTACKING:
 					System.out.println("ATTACKING");
 					if (move != null)
-						move.turnOff();
+						move.turnRoutineOff();
 					move = new Avoidance(this);
 					move.start();
 					break;
-				case NEUTRAL:
+				case STUNNED:
 					System.out.println("Neutral");
 
 					if (move != null)
-						move.turnOff();
+						move.turnRoutineOff();
 					move = new Follow(this);
 					move.start();
 
 					if (shoot != null) {
-						shoot.turnOff();
+						shoot.turnRoutineOff();
 					}
 					shoot = new ShootContinuous(this);
 					shoot.start();
@@ -66,12 +70,12 @@ public class BasicDecisionTree extends AIPlayer {
 				case RUNNING:
 					System.out.println("running");
 					if (move != null)
-						move.turnOff();
+						move.turnRoutineOff();
 					move = new Follow(this);
 					move.start();
 
 					if (shoot != null) {
-						shoot.turnOff();
+						shoot.turnRoutineOff();
 					}
 					shoot = new ShootContinuous(this);
 					shoot.start();
@@ -81,11 +85,11 @@ public class BasicDecisionTree extends AIPlayer {
 					System.out.println("shielding");
 
 					if (move != null)
-						move.turnOff();
+						move.turnRoutineOff();
 					move = new Avoidance(this);
 					move.start();
 					if (shoot != null) {
-						shoot.turnOff();
+						shoot.turnRoutineOff();
 					}
 					break;
 				}
@@ -101,7 +105,7 @@ public class BasicDecisionTree extends AIPlayer {
 	public State discoverEnemyState() {
 		if (getOpponent().isFrozen() || getOpponent().isShieldCool()
 				|| previousState == null) {
-			return State.NEUTRAL;
+			return State.STUNNED;
 		} else if (findEnemyBullets(getGame().getBullets()).size() > 0) {
 			return State.SHOOTING;
 		} else if (getOpponent().isShield()) {

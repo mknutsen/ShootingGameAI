@@ -1,0 +1,25 @@
+package aiproject.player.ai.procedures.shoot;
+
+import aiproject.Config;
+import aiproject.player.ai.AIPlayer;
+import aiproject.player.ai.procedures.ProcedureArchitype;
+
+public class ShootSporadically extends ProcedureArchitype {
+
+	public ShootSporadically(AIPlayer player) {
+		super(player);
+	}
+
+	@Override
+	public void run() {
+		while (isRoutineOn()) {
+			getPlayer().spawnBullet();
+			try {
+				Thread.sleep(Config.BULLET_COOLDOWN_TIME);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+}

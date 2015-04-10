@@ -1,0 +1,14 @@
+1412026985886	Rename type 'ArduinoUnoPin'
+1412027471329	Rename method 'getPinNumber'
+1412027489405	Rename field 'pin'
+1412027495784	Rename field 'pin'
+1412027499443	Rename field 'pinNUm'
+1412027533781	Move method
+1412028686395	Rename type 'AnalogState'
+1412028891689	Rename type 'PWM_PIN_OFF'
+1412028895819	Rename type 'PWMPin_FULL_OFF'
+1412028900886	Rename type 'PWMPin_FULL_ON'
+1412029235819	Move method
+1412034527501	Move method
+1412034828719	Move compilation units
+1412034965971	Move compilation units

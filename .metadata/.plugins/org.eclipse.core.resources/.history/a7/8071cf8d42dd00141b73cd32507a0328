@@ -1,0 +1,34 @@
+package aiproject.player.ai.procedures;
+
+import aiproject.Config;
+import aiproject.player.ai.AIPlayer;
+
+public abstract class ProcedureArchitype extends Thread {
+	private AIPlayer player;
+	private boolean routineIsOne;
+
+	public ProcedureArchitype(AIPlayer player) {
+		this.player = (player);
+		routineIsOne = true;
+	}
+
+	public boolean isRoutineOn() {
+		return routineIsOne;
+	}
+
+	public void turnRoutineOff() {
+		routineIsOne = false;
+	}
+
+	protected void chill() {
+		try {
+			Thread.sleep(Config.AI_CHILL_TIME);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public AIPlayer getPlayer() {
+		return player;
+	}
+}

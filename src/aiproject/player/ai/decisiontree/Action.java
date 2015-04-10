@@ -14,11 +14,11 @@ public class Action extends Thread {
 
 	public void turnOff() {
 		if (action != null)
-			action.turnOff();
+			action.turnRoutineOff();
 	}
 
 	public void setAction(ProcedureArchitype action) {
-		action.turnOff();
+		action.turnRoutineOff();
 		this.action = action;
 	}
 
@@ -27,7 +27,7 @@ public class Action extends Thread {
 	}
 
 	public boolean isRunning() {
-		return action.isOn();
+		return action.isRoutineOn();
 	}
 	
 }
