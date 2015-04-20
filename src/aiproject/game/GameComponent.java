@@ -9,19 +9,18 @@ import java.awt.event.MouseMotionListener;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.JPanel;
-
 import aiproject.Config;
 import aiproject.player.Player;
+import aiproject.player.ai.decisiontree.LeveledDecisionTree;
 
-public class GraphicsComponent extends JPanel {
+public class GameComponent extends GraphicsComponent {
 	private Player player1, player2;
 	private ArrayList<Bullet> bullets;
-	private boolean isComplete;
 	private boolean engaged;
 	private static final long serialVersionUID = 1L;
+	private int aiLevel;
 
-	public GraphicsComponent(Player p1, Player p2) {
+	public GameComponent(Player p1, Player p2) {
 		engaged = false;
 		bullets = new ArrayList<Bullet>();
 		player1 = p1;
@@ -32,18 +31,25 @@ public class GraphicsComponent extends JPanel {
 		player2.setY(Config.DEFAULT_Y);
 		player2.setGame(this);
 		player1.setGame(this);
+		System.out.println(player2 instanceof KeyListener);
 		if (player1 instanceof MouseListener)
 			addMouseListener((MouseListener) player1);
 		if (player1 instanceof MouseMotionListener)
 			addMouseMotionListener((MouseMotionListener) player1);
-		if (player1 instanceof KeyListener)
+		if (player1 instanceof KeyListener) {
 			addKeyListener((KeyListener) player1);
+			System.out.println("yoo");
+		}
 		if (player2 instanceof MouseListener)
 			addMouseListener((MouseListener) player2);
 		if (player2 instanceof MouseMotionListener)
 			addMouseMotionListener((MouseMotionListener) player2);
-		if (player2 instanceof KeyListener)
+		if (player2 instanceof KeyListener) {
 			addKeyListener((KeyListener) player2);
+			System.out.println("yoo");
+		}
+		if (player1 instanceof LeveledDecisionTree)
+			((LeveledDecisionTree) player1).setAILevel(aiLevel);
 	}
 
 	public void paint(Graphics gr) {
@@ -97,12 +103,8 @@ public class GraphicsComponent extends JPanel {
 		bullets.add(new Bullet(startX, y, dir, 800));
 	}
 
-	public boolean complete() {
-		return isComplete;
-	}
-
 	public void end() {
-		isComplete = true;
+		triggerCallback(player1.getHealth() > player2.getHealth() ? 0 : 1);
 	}
 
 	public List<Bullet> getBullets() {
@@ -127,5 +129,11 @@ public class GraphicsComponent extends JPanel {
 				new Thread((Runnable) player1).start();
 			}
 		}
+	}
+
+	@Override
+	public void takeParameters(Object[] obj) {
+		if (obj != null && obj.length != 0)
+			aiLevel = (int) obj[0];
 	}
 }

@@ -5,12 +5,12 @@ import java.awt.Graphics;
 
 import aiproject.Config;
 import aiproject.game.GraphicObject;
-import aiproject.game.GraphicsComponent;
+import aiproject.game.GameComponent;
 
 public abstract class Player extends GraphicObject {
 	private final int windowHeight;
 	private int health = Config.STARTING_HEALTH;
-	private GraphicsComponent game;
+	private GameComponent game;
 	private boolean frozen, shield, laserCool, shieldCool;
 	private boolean isPlayer1;
 	private int goalY;
@@ -61,7 +61,7 @@ public abstract class Player extends GraphicObject {
 		}
 	}
 
-	public void setGame(GraphicsComponent game) {
+	public void setGame(GameComponent game) {
 		this.game = game;
 	}
 
@@ -192,7 +192,7 @@ public abstract class Player extends GraphicObject {
 		return health;
 	}
 
-	public GraphicsComponent getGame() {
+	public GameComponent getGame() {
 		return game;
 	}
 

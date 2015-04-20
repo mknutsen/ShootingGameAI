@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import aiproject.game.Bullet;
-import aiproject.game.GraphicsComponent;
+import aiproject.game.GameComponent;
 import aiproject.player.Player;
 
 public abstract class AIPlayer extends Player implements Runnable {
@@ -15,7 +15,7 @@ public abstract class AIPlayer extends Player implements Runnable {
 	}
 
 	@Override
-	public void setGame(GraphicsComponent game) {
+	public void setGame(GameComponent game) {
 		super.setGame(game);
 		opponent = isPlayer1() ? game.getPlayer2() : game.getPlayer1();
 	}

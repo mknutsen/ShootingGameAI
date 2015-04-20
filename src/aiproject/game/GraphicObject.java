@@ -1,6 +1,7 @@
 package aiproject.game;
 
 import java.awt.Graphics;
+import java.awt.event.MouseEvent;
 
 import aiproject.Config;
 
@@ -97,6 +98,10 @@ public abstract class GraphicObject {
 				|| isInside(other.x, other.y + other.height)
 				|| isInside(other.x + other.width, other.y + other.height);
 
+	}
+
+	public boolean isInside(MouseEvent e) {
+		return isInside(e.getX(), e.getY());
 	}
 
 	private void setVelocity(double velocity) {
