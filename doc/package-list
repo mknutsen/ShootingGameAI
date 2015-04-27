@@ -1,0 +1,10 @@
+mknutsen.aiproject
+mknutsen.aiproject.game
+mknutsen.aiproject.player
+mknutsen.aiproject.player.ai
+mknutsen.aiproject.player.ai.decisiontree
+mknutsen.aiproject.player.ai.procedures
+mknutsen.aiproject.player.ai.procedures.movement
+mknutsen.aiproject.player.ai.procedures.shield
+mknutsen.aiproject.player.ai.procedures.shoot
+mknutsen.graphicslibrary
