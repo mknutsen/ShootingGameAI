@@ -1,0 +1,235 @@
+package mknutsen.aiproject.player;
+
+import java.awt.Color;
+import java.awt.Graphics;
+
+import mknutsen.aiproject.Config;
+import mknutsen.aiproject.game.GameComponent;
+import mknutsen.graphicslibrary.GraphicObject;
+
+public abstract class Player extends GraphicObject {
+	private final int windowHeight;
+	private int health = Config.STARTING_HEALTH;
+	private GameComponent game;
+	private boolean frozen, shield, laserCool, shieldCool;
+	private boolean isPlayer1;
+	private int goalY;
+
+	public Player(int width, int height, int yLimit, boolean isPlayer1) {
+		super(0, 0, width, height, true);
+		this.windowHeight = yLimit;
+		this.setPlayer1(isPlayer1);
+		goalY = getY();
+		new Thread(new Runnable() {
+
+			@Override
+			public void run() {
+				while (true) {
+					int goal = getGoal(), current = getY();
+					if (goalY != getY()) {
+						if (Math.abs(goal - current) <= Config.MOVE_PER_10_MS) {
+							setY(goal);
+						} else {
+							setY(current + (goal - current)
+									/ Math.abs(goal - current)
+									* Config.MOVE_PER_10_MS);
+						}
+					}
+					try {
+						Thread.sleep(10);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+				}
+			}
+
+		}).start();
+	}
+
+	private void getInside() {
+		if (getY() < 0)
+			setY(0);
+		if (getY() + getHeight() > windowHeight) {
+			setY(windowHeight - getHeight());
+		}
+	}
+
+	public void setY(int y) {
+		if (!frozen) {
+			super.setY(y);
+			getInside();
+		}
+	}
+
+	public void setGame(GameComponent game) {
+		this.game = game;
+	}
+
+	public void spawnBullet() {
+		if (!(frozen || laserCool)) {
+			frozen = true;
+			laserCool = true;
+			game.addBullet(getY() + getHeight() / 2, this);
+			new Thread(new Runnable() {
+
+				@Override
+				public void run() {
+					try {
+						Thread.sleep(Config.BULLET_STUN_TIME);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+					frozen = false;
+				}
+
+			}).start();
+			new Thread(new Runnable() {
+
+				@Override
+				public void run() {
+					try {
+						Thread.sleep(Config.BULLET_COOLDOWN_TIME);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+					laserCool = false;
+				}
+
+			}).start();
+
+		}
+	}
+
+	@Override
+	public boolean draw(Graphics gr) {
+		if (frozen) {
+			gr.setColor(Color.BLUE);
+		} else {
+			gr.setColor(Color.BLACK);
+		}
+		gr.fillRect(getX(), getY(), getWidth(), getHeight());
+		if (shieldCool) {
+			gr.setColor(Color.GRAY);
+			gr.fillRect(getX() - 10, getY(), 10, getHeight());
+			gr.fillRect(getX() + getWidth(), getY(), 10, getHeight());
+		} else if (shield) {
+			gr.setColor(Color.YELLOW);
+			gr.fillRect(getX() - 10, getY(), 10, getHeight());
+			gr.fillRect(getX() + getWidth(), getY(), 10, getHeight());
+		} else if (laserCool) {
+			gr.setColor(Color.RED);
+			gr.fillRect(getX(), getY() - 10, getWidth(), 10);
+			gr.fillRect(getX(), getY() + getHeight(), getWidth(), 10);
+
+		}
+		return true;
+	}
+
+	public void shield() {
+		if (!(frozen || shieldCool)) {
+			new Thread(new Runnable() {
+
+				@Override
+				public void run() {
+					shield = true;
+					try {
+						Thread.sleep(Config.SHIELD_DURATION);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+					shield = false;
+					shieldCool = true;
+					try {
+						Thread.sleep(Config.SHIELD_COOLDOWN_TIME);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+					shieldCool = false;
+				}
+
+			}).start();
+			new Thread(new Runnable() {
+
+				@Override
+				public void run() {
+					frozen = true;
+					try {
+						Thread.sleep(Config.SHIELD_STUN_TIME);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+					frozen = false;
+				}
+
+			}).start();
+		}
+	}
+
+	public void hit() {
+		if (!shield) {
+			health--;
+			new Thread(new Runnable() {
+
+				@Override
+				public void run() {
+					frozen = true;
+					try {
+						Thread.sleep(Config.HIT_STUN_TIME);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+					frozen = false;
+				}
+
+			}).start();
+			if (health < 1) {
+				game.end();
+			}
+		}
+	}
+
+	public int getHealth() {
+		return health;
+	}
+
+	public GameComponent getGame() {
+		return game;
+	}
+
+	public int getWindowHeight() {
+		return windowHeight;
+	}
+
+	public boolean isPlayer1() {
+		return isPlayer1;
+	}
+
+	public void setPlayer1(boolean isPlayer1) {
+		this.isPlayer1 = isPlayer1;
+	}
+
+	public boolean isFrozen() {
+		return frozen;
+	}
+
+	public boolean isShield() {
+		return shield;
+	}
+
+	public boolean isLaserCool() {
+		return laserCool;
+	}
+
+	public boolean isShieldCool() {
+		return shieldCool;
+	}
+
+	public int getGoal() {
+		return goalY;
+	}
+
+	public void setGoal(int goalY) {
+		goalY = goalY > 0 ? goalY : 0;
+		this.goalY = goalY < windowHeight ? goalY : windowHeight;
+	}
+}
