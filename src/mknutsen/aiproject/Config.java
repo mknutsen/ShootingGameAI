@@ -24,7 +24,7 @@ public final class Config {
 
 	// GENERAL GAME
 	public static final int P_ONE_X = 5;
-	public static final int P_TWO_X = 800 - DEFAULT_PLAYER_WIDTH;
+	public static final int P_TWO_X = 845 - DEFAULT_PLAYER_WIDTH;
 	public static final int DEFAULT_Y = 0;
 	public static final boolean DEBUG = false;
 	public static final int BULLET_HEIGHT = 10;

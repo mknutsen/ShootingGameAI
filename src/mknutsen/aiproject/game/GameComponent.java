@@ -94,7 +94,7 @@ public class GameComponent extends GraphicsComponent {
 			dir = -1;
 			startX = player2.getX() - Config.BULLET_WIDTH - 5;
 		}
-		bullets.add(new Bullet(startX, y, dir, 800));
+		bullets.add(new Bullet(startX, y, dir, 850));
 	}
 
 	public void end() {
