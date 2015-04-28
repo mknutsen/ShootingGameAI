@@ -5,6 +5,16 @@ import mknutsen.aiproject.player.ai.AIPlayer;
 public abstract class BasicDecisionTree extends AIPlayer {
 	private State previousState;
 
+	/**
+	 * @param width
+	 *            width of the player
+	 * @param height
+	 *            height of the player
+	 * @param yLimit
+	 *            window height
+	 * @param player1
+	 *            is it player 1 or not
+	 */
 	public BasicDecisionTree(int width, int height, int yLimit, boolean player1) {
 		super(width, height, yLimit, player1);
 	}

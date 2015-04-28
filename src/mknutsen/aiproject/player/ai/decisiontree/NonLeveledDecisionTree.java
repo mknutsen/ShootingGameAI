@@ -10,12 +10,30 @@ import mknutsen.aiproject.player.ai.procedures.shield.ShieldingArchitype;
 import mknutsen.aiproject.player.ai.procedures.shoot.ShootContinuous;
 import mknutsen.aiproject.player.ai.procedures.shoot.ShootingArchitype;
 
+/**
+ * Decision tree that always plays at its best. Uses the determined state of the
+ * opponent to decide how to react.
+ * 
+ * @author Max Knutsen - mknutse1@umbc.edu
+ *
+ */
 public class NonLeveledDecisionTree extends BasicDecisionTree {
 	private ShieldingArchitype shield;
 	private ShootingArchitype shoot;
 	private MovementArchitype move;
 
-	public NonLeveledDecisionTree(int width, int height, int yLimit, boolean player1) {
+	/**
+	 * @param width
+	 *            width of the player
+	 * @param height
+	 *            height of the player
+	 * @param yLimit
+	 *            window height
+	 * @param player1
+	 *            is it player 1 or not
+	 */
+	public NonLeveledDecisionTree(int width, int height, int yLimit,
+			boolean player1) {
 		super(width, height, yLimit, player1);
 	}
 
