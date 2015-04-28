@@ -14,12 +14,26 @@ import mknutsen.aiproject.player.Player;
 import mknutsen.aiproject.player.ai.decisiontree.LeveledDecisionTree;
 import mknutsen.graphicslibrary.GraphicsComponent;
 
+/**
+ * Game component is the component that facillitates gameplay
+ * 
+ * @author mknutsen
+ *
+ */
 public class GameComponent extends GraphicsComponent {
 	private Player player1, player2;
 	private ArrayList<Bullet> bullets;
 	private boolean engaged;
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * sets up game and activates any listeners.
+	 * 
+	 * @param p1
+	 *            player 1 (left) for this game
+	 * @param p2
+	 *            player 2 (right) for this game
+	 */
 	public GameComponent(Player p1, Player p2) {
 		engaged = false;
 		bullets = new ArrayList<Bullet>();
@@ -31,7 +45,6 @@ public class GameComponent extends GraphicsComponent {
 		player2.setY(Config.DEFAULT_Y);
 		player2.setGame(this);
 		player1.setGame(this);
-		System.out.println(player2 instanceof KeyListener);
 		if (player1 instanceof MouseListener)
 			addMouseListener((MouseListener) player1);
 		if (player1 instanceof MouseMotionListener)
@@ -46,6 +59,7 @@ public class GameComponent extends GraphicsComponent {
 			addKeyListener((KeyListener) player2);
 	}
 
+	@Override
 	public void paint(Graphics gr) {
 		gr.setColor(Color.WHITE);
 		gr.fillRect(0, 0, 900, 900);
@@ -85,16 +99,8 @@ public class GameComponent extends GraphicsComponent {
 		repaint();
 	}
 
-	public void addBullet(int y, Player player) {
-		int dir, startX;
-		if (player == player1) {
-			dir = 1;
-			startX = player1.getX() + player1.getWidth() + 5;
-		} else {
-			dir = -1;
-			startX = player2.getX() - Config.BULLET_WIDTH - 5;
-		}
-		bullets.add(new Bullet(startX, y, dir, 850));
+	public void addBullet(Bullet bullet) {
+		bullets.add(bullet);
 	}
 
 	public void end() {

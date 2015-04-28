@@ -12,12 +12,21 @@ import mknutsen.aiproject.Config;
 import mknutsen.graphicslibrary.Button;
 import mknutsen.graphicslibrary.GraphicsComponent;
 
+/**
+ * Component that displays instructions
+ * 
+ * @author mknutsen
+ *
+ */
 public class InstructionsComponent extends GraphicsComponent implements
 		MouseListener, KeyListener {
 
 	private static final long serialVersionUID = 1L;
 	private Button done;
 
+	/**
+	 * makes a done button, adds listeners
+	 */
 	public InstructionsComponent() {
 		done = new Button(760, 760, "OK");
 		addMouseListener(this);

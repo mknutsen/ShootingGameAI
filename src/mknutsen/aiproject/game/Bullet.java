@@ -8,6 +8,12 @@ import java.util.List;
 import mknutsen.aiproject.Config;
 import mknutsen.graphicslibrary.GraphicObject;
 
+/**
+ * Bullet is a graphicobject that moves horizontally at a preset rate.
+ * 
+ * @author mknutsen
+ *
+ */
 public class Bullet extends GraphicObject implements Comparable<GraphicObject> {
 	private int movePer10Ms;
 	private final int windowWidth;
@@ -54,6 +60,13 @@ public class Bullet extends GraphicObject implements Comparable<GraphicObject> {
 		return dir;
 	}
 
+	/**
+	 * Sorts a list of bullets
+	 * 
+	 * @param bullets
+	 *            list of bullets
+	 * @return list of bullets in vertical ascending order
+	 */
 	public static List<Bullet> sort(List<Bullet> bullets) {
 		if (bullets == null || bullets.size() == 0) {
 			return bullets;
@@ -67,7 +80,20 @@ public class Bullet extends GraphicObject implements Comparable<GraphicObject> {
 		return Arrays.asList(bullet);
 	}
 
-	public static int findSpace(List<Bullet> bullets, int height, int yLimits) {
+	/**
+	 * uses the sort function to find an opening in the bullets of a certain
+	 * size
+	 * 
+	 * @param bullets
+	 *            list of bullets
+	 * @param height
+	 *            desired height of the opening
+	 * @param windowHeight
+	 *            bottom of the window
+	 * @return -1 if no opening, location of the top of the opening otherwise
+	 */
+	public static int findSpace(List<Bullet> bullets, int height,
+			int windowHeight) {
 		if (bullets.isEmpty())
 			return 0;
 		bullets = Bullet.sort(bullets);
@@ -80,25 +106,24 @@ public class Bullet extends GraphicObject implements Comparable<GraphicObject> {
 				return bullets.get(i).getY() + bullets.get(i).getHeight();
 			}
 		}
-		if (yLimits + height - bullets.get(bullets.size() - 1).getY()
+		if (windowHeight + height - bullets.get(bullets.size() - 1).getY()
 				+ bullets.get(bullets.size() - 1).getHeight() > height) {
-			return yLimits;
+			return windowHeight;
 		}
 		return -1;
 	}
 
+	@Override
 	public String toString() {
 		return "[" + getX() + "," + getY() + "]";
 	}
 
-	@Override
+	/**
+	 * @param other
+	 *            other graphic object
+	 * @return 1 if this obj has a > y than the other, -1 otherwise
+	 */
 	public int compareTo(GraphicObject other) {
 		return other.getY() < getY() ? 1 : -1;
 	}
-
-//	public static void main(String[] args) {
-//		System.out.println(Bullet.sort(Arrays.asList(new Bullet(40, 70, -1, 0),
-//				new Bullet(40, 10, -1, 0), new Bullet(40, 90, -1, 0),
-//				new Bullet(40, 20, -1, 0), new Bullet(40, 50, -1, 0))));
-	//	}
 }

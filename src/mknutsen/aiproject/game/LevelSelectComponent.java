@@ -13,7 +13,7 @@ import mknutsen.graphicslibrary.GraphicsComponent;
  * Component that allows the user to select a level between 1 - 10. Then returns
  * this number using the callback.
  * 
- * @author mknutsen
+ * @author Max - Knutsen
  *
  */
 public class LevelSelectComponent extends GraphicsComponent implements
@@ -46,8 +46,9 @@ public class LevelSelectComponent extends GraphicsComponent implements
 	public void mouseClicked(MouseEvent e) {
 		for (Button b : buttons) {
 			if (b.isInside(e)) {
-				int x = (Integer.parseInt(b.getText()) * 100) / (totalLevels);
-				triggerCallback(x);
+				int levelNumber = (Integer.parseInt(b.getText()) * 100)
+						/ (totalLevels);
+				triggerCallback(levelNumber);
 			}
 		}
 	}

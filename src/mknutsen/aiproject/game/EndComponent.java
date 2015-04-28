@@ -10,6 +10,13 @@ import java.awt.event.MouseListener;
 import mknutsen.graphicslibrary.Button;
 import mknutsen.graphicslibrary.GraphicsComponent;
 
+/**
+ * Screen that is displayed at the end of the game informing the player(s) who
+ * won.
+ * 
+ * @author Max Knutsen - mknutse1@umbc.edu
+ *
+ */
 public class EndComponent extends GraphicsComponent implements MouseListener,
 		KeyListener {
 
@@ -17,9 +24,11 @@ public class EndComponent extends GraphicsComponent implements MouseListener,
 	private int winner;
 	private Button quit;
 
+	/**
+	 * Default constructor: creates quit button
+	 */
 	public EndComponent() {
 		quit = new Button(840 / 2 - 45, 200, 90, 50, "  Quit");
-		// again = new Button(840 / 2 + 90, 200, 90, 50, "Again?");
 		addKeyListener(this);
 		addMouseListener(this);
 	}
@@ -29,11 +38,11 @@ public class EndComponent extends GraphicsComponent implements MouseListener,
 		winner = (int) obj[0] + 1;
 	}
 
+	@Override
 	public void paint(Graphics g) {
 		g.setFont(new Font("Times New Roman", Font.BOLD, 30));
 		g.drawString("Winner is... player " + winner, 300, 150);
 		quit.draw(g);
-		// again.draw(g);
 	}
 
 	@Override
@@ -57,10 +66,6 @@ public class EndComponent extends GraphicsComponent implements MouseListener,
 	public void mouseClicked(MouseEvent e) {
 		if (quit.isInside(e))
 			triggerCallback();
-		// else if (again.isInside(e)) {
-		// triggerCallback(1);
-		// }
-
 	}
 
 	@Override
