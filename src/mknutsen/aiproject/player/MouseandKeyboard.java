@@ -67,13 +67,13 @@ public class MouseandKeyboard extends Player implements KeyListener,
 	private void move(KeyEvent e) {
 		if ((getGoal() > getY() && e.getKeyCode() == upKey)
 				|| (getGoal() < getY() && e.getKeyCode() == downKey)) {
-			setGoal(getY());
+			setY(getY());
 		}
 		if (Math.abs(getGoal() - getY()) < Config.KB_THRESHOLD) {
 			if (e.getKeyCode() == upKey) {
-				setGoal(getGoal() - Config.KB_MOVE_PER_CLICK);
+				setY(getGoal() - Config.KB_MOVE_PER_CLICK);
 			} else if (e.getKeyCode() == downKey) {
-				setGoal(getGoal() + Config.KB_MOVE_PER_CLICK);
+				setY(getGoal() + Config.KB_MOVE_PER_CLICK);
 			}
 		}
 		if (e.getKeyCode() == shootKey) {
@@ -96,7 +96,7 @@ public class MouseandKeyboard extends Player implements KeyListener,
 			@Override
 			public void run() {
 				getGame().engaged();
-				setGoal(e.getY() - getHeight() / 2);
+				setY(e.getY() - getHeight() / 2);
 
 			}
 

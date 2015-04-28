@@ -23,7 +23,7 @@ public class AvoidBullets extends MovementArchitype {
 				if (space < 0) {
 
 				} else {
-					getPlayer().setGoal(space);
+					getPlayer().setY(space);
 				}
 			}
 			oldNum = getPlayer().findEnemyBullets(

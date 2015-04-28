@@ -17,7 +17,7 @@ public class MoveRandomly extends MovementArchitype {
 		while (isRoutineOn()) {
 			if (magicNumber == rand.nextInt(upperBound))
 				getPlayer()
-						.setGoal(rand.nextInt(getPlayer().getWindowHeight()));
+						.setY(rand.nextInt(getPlayer().getWindowHeight()));
 			chill();
 		}
 	}

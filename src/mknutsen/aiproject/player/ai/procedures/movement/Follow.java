@@ -14,10 +14,10 @@ public class Follow extends MovementArchitype {
 			if (Math.abs(getPlayer().getOpponent().getY() - getPlayer().getY()) > getPlayer()
 					.getHeight() / 4) {
 
-				getPlayer().setGoal(getPlayer().getOpponent().getY() < (getPlayer().getY()) ? 0
+				getPlayer().setY(getPlayer().getOpponent().getY() < (getPlayer().getY()) ? 0
 						: getPlayer().getWindowHeight());
 			}else{
-				getPlayer().setGoal(getPlayer().getY());
+				getPlayer().setY(getPlayer().getY());
 			}
 			chill();
 		}

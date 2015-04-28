@@ -10,7 +10,7 @@ public class Avoidance extends MovementArchitype {
 	@Override
 	public void run() {
 		while (isRoutineOn()) {
-			getPlayer().setGoal(getPlayer().getOpponent().getY()
+			getPlayer().setY(getPlayer().getOpponent().getY()
 					+ getPlayer().getOpponent().getHeight() / 2 > (getPlayer()
 					.getWindowHeight() / 2) ? 0 : getPlayer().getWindowHeight());
 			chill();
