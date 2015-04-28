@@ -4,9 +4,17 @@ import java.awt.Color;
 import java.awt.Graphics;
 
 import mknutsen.aiproject.Config;
+import mknutsen.aiproject.game.Bullet;
 import mknutsen.aiproject.game.GameComponent;
 import mknutsen.graphicslibrary.GraphicObject;
 
+/**
+ * Player can move up and down and fire and shield. it has certain other
+ * properties that affect when it can do those.
+ * 
+ * @author mknutsen
+ *
+ */
 public abstract class Player extends GraphicObject {
 	private final int windowHeight;
 	private int health = Config.STARTING_HEALTH;
@@ -69,7 +77,17 @@ public abstract class Player extends GraphicObject {
 		if (!(frozen || laserCool)) {
 			frozen = true;
 			laserCool = true;
-			game.addBullet(getY() + getHeight() / 2, this);
+
+			int dir, startX;
+			// FIX ALL THIS
+			dir = isPlayer1() ? 1 : -1;
+			if (isPlayer1()) {
+				startX = getX() + getWidth() + 5;
+			} else {
+				startX = getX() - Config.BULLET_WIDTH - 5;
+			}
+			getGame().addBullet(
+					new Bullet(startX, getY() + getHeight() / 2, dir, 850));
 			new Thread(new Runnable() {
 
 				@Override

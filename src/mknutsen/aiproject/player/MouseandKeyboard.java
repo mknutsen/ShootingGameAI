@@ -8,12 +8,37 @@ import java.awt.event.MouseMotionListener;
 
 import mknutsen.aiproject.Config;
 
+/**
+ * uses mouse and keyboard to be the player
+ * 
+ * @author mknutsen
+ */
 public class MouseandKeyboard extends Player implements KeyListener,
 		MouseListener, MouseMotionListener {
 	private final int upKey, downKey;
 	private final int shieldKey;
 	private final int shootKey;
 
+	/**
+	 * keys are using the KeyEvent key codes
+	 * 
+	 * @param width
+	 *            player width
+	 * @param height
+	 *            playr height
+	 * @param yLimit
+	 *            window height
+	 * @param upKey
+	 *            key to move up
+	 * @param downKey
+	 *            key to move down
+	 * @param shootKey
+	 *            key to shoot
+	 * @param shieldKey
+	 *            key to shield
+	 * @param isPlayer1
+	 *            is player 1 boolean
+	 */
 	public MouseandKeyboard(int width, int height, int yLimit, int upKey,
 			int downKey, int shootKey, int shieldKey, boolean isPlayer1) {
 		super(width, height, yLimit, isPlayer1);

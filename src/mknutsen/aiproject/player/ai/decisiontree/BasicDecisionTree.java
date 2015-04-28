@@ -29,7 +29,7 @@ public abstract class BasicDecisionTree extends AIPlayer {
 						.getY())) {
 			return State.RUNNING;
 		} else {
-			return previousState;
+			return State.STUNNED;
 		}
 	}
 

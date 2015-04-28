@@ -4,9 +4,25 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 
+/**
+ * Mouse Player tracks a mouses movements and left and right clicks to move,
+ * shoot, and shield
+ * 
+ * @author mknutsen
+ *
+ */
 public class MousePlayer extends Player implements MouseListener,
 		MouseMotionListener {
-
+	/**
+	 * @param width
+	 *            player width
+	 * @param height
+	 *            player height
+	 * @param yLimit
+	 *            screen height
+	 * @param isPlayer1
+	 *            is it player 1?
+	 */
 	public MousePlayer(int width, int height, int yLimit, boolean isPlayer1) {
 		super(width, height, yLimit, isPlayer1);
 
