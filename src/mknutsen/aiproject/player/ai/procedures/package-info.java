@@ -1,9 +1,7 @@
 /**
- * graphicslibrary is a set of classes that make graphics a 
- * little bit more straightforward. GraphicsDriver takes a collection
- * of GraphicsComponents and uses CompletionCallback to switch between
- * them. In these classes, GraphicObject is the template for objects which
- * will be drawn on the screen.
+ * procedures are indiviudal components to the AI. 
+ * its a way for the AI to control one specific part 
+ * of the player in a specific manner based on the context.
  * @author Max Knutsen - mknutse1@umbc.edu
  */
 package mknutsen.aiproject.player.ai.procedures;
