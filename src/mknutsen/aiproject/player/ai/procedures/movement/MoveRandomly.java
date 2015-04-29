@@ -4,8 +4,20 @@ import java.util.Random;
 
 import mknutsen.aiproject.player.ai.AIPlayer;
 
+/**
+ * Moves to a random location after a random amount of time
+ * 
+ * @author mknutsen
+ *
+ */
 public class MoveRandomly extends MovementArchitype {
 
+	/**
+	 * Sets up the movement procedure
+	 * 
+	 * @param player
+	 *            player to move
+	 */
 	public MoveRandomly(AIPlayer player) {
 		super(player);
 	}
@@ -16,8 +28,7 @@ public class MoveRandomly extends MovementArchitype {
 		int upperBound = 100, magicNumber = 50;
 		while (isRoutineOn()) {
 			if (magicNumber == rand.nextInt(upperBound))
-				getPlayer()
-						.setY(rand.nextInt(getPlayer().getWindowHeight()));
+				getPlayer().setY(rand.nextInt(getPlayer().getWindowHeight()));
 			chill();
 		}
 	}

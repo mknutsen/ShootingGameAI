@@ -4,8 +4,17 @@ import java.util.Random;
 
 import mknutsen.aiproject.player.ai.AIPlayer;
 
+/**
+ * Shoots at random times
+ * 
+ * @author mknutsen
+ *
+ */
 public class ShootRandomly extends ShootingArchitype {
-
+	/**
+	 * @param player
+	 *            player to manipulate
+	 */
 	public ShootRandomly(AIPlayer player) {
 		super(player);
 	}

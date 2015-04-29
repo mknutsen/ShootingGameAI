@@ -2,8 +2,20 @@ package mknutsen.aiproject.player.ai.procedures.movement;
 
 import mknutsen.aiproject.player.ai.AIPlayer;
 
+/**
+ * Follows the other player
+ * 
+ * @author mknutsen
+ *
+ */
 public class Follow extends MovementArchitype {
 
+	/**
+	 * Sets up the movement procedure
+	 * 
+	 * @param player
+	 *            player to move
+	 */
 	public Follow(AIPlayer player) {
 		super(player);
 	}
@@ -14,9 +26,10 @@ public class Follow extends MovementArchitype {
 			if (Math.abs(getPlayer().getOpponent().getY() - getPlayer().getY()) > getPlayer()
 					.getHeight() / 4) {
 
-				getPlayer().setY(getPlayer().getOpponent().getY() < (getPlayer().getY()) ? 0
-						: getPlayer().getWindowHeight());
-			}else{
+				getPlayer()
+						.setY(getPlayer().getOpponent().getY() < (getPlayer()
+								.getY()) ? 0 : getPlayer().getWindowHeight());
+			} else {
 				getPlayer().setY(getPlayer().getY());
 			}
 			chill();
