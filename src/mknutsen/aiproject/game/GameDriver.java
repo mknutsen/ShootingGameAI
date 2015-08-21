@@ -10,6 +10,8 @@ import mknutsen.aiproject.player.Player;
 import mknutsen.aiproject.player.ai.decisiontree.LeveledDecisionTree;
 import mknutsen.graphicslibrary.GraphicsDriver;
 
+import javax.imageio.ImageIO;
+
 /**
  * Uses GraphicsLibrary's GraphicsDriver to run the program with an instructions
  * component, level select component, and a game component.
@@ -23,7 +25,7 @@ public class GameDriver {
 	public static void main(String[] args) {
 		new GraphicsDriver(WIDTH, HEIGHT, new InstructionsComponent(),
 				new LevelSelectComponent(), new GameComponent(
-						generateTree(true), generateKB(false)),
+						generateTree(true), generateBoth(false)),
 				new EndComponent()).setVisible(true);
 	}
 

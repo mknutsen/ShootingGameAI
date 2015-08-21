@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="ShootingGameAI:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/ShootingGameAI_jar</output-path>
+    <root id="archive" name="ShootingGameAI.jar">
+      <element id="module-output" name="ShootingGameAI" />
+      <element id="module-output" name="GraphicsLibrary" />
+    </root>
+  </artifact>
+</component>
