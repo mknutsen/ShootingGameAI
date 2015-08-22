@@ -61,6 +61,8 @@ public final class Config {
 
     public static BufferedImage[] PLAYER_IMAGES = new BufferedImage[2];
 
+
+
     private Config() {
 
     }
