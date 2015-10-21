@@ -3,7 +3,7 @@ package mknutsen.aiproject.player;
 import mknutsen.aiproject.Config;
 import mknutsen.aiproject.game.Bullet;
 import mknutsen.aiproject.game.GameComponent;
-import mknutsen.graphicslibrary.GraphicObject;
+import mknutsen.graphicslibrary.graphicsobject.RectangleGraphicObject;
 
 import java.awt.*;
 
@@ -12,7 +12,7 @@ import java.awt.*;
  *
  * @author mknutsen
  */
-public abstract class Player extends GraphicObject {
+public abstract class Player extends RectangleGraphicObject {
 
     private final int windowHeight;
 
@@ -84,9 +84,9 @@ public abstract class Player extends GraphicObject {
             // FIX ALL THIS
             dir = isPlayer1() ? 1 : -1;
             if (isPlayer1()) {
-                startX = getX() + getWidth() + 5;
+                startX = getX() + getWidth() + 10;
             } else {
-                startX = getX() - Config.BULLET_WIDTH - 5;
+                startX = getX() - Config.BULLET_WIDTH - 10;
             }
             getGame().addBullet(new Bullet(startX, getY() + getHeight() / 2, dir, 850));
             new Thread(new Runnable() {

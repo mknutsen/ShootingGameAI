@@ -1,7 +1,8 @@
 package mknutsen.aiproject.game;
 
 import mknutsen.aiproject.Config;
-import mknutsen.graphicslibrary.GraphicObject;
+import mknutsen.graphicslibrary.graphicsobject.GraphicObject;
+import mknutsen.graphicslibrary.graphicsobject.RectangleGraphicObject;
 
 import java.awt.*;
 import java.util.Arrays;
@@ -12,7 +13,7 @@ import java.util.List;
  *
  * @author mknutsen
  */
-public class Bullet extends GraphicObject implements Comparable<GraphicObject> {
+public class Bullet extends RectangleGraphicObject implements Comparable<GraphicObject> {
 
     private final int windowWidth;
 
