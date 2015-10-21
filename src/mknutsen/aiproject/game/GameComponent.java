@@ -41,8 +41,8 @@ public class GameComponent extends GraphicsComponent {
 		player2 = p2;
 		player1.setX(Config.P_ONE_X);
 		player2.setX(Config.P_TWO_X);
-		player1.setY(Config.DEFAULT_Y);
-		player2.setY(Config.DEFAULT_Y);
+		player1.setGoalY(Config.DEFAULT_Y);
+		player2.setGoalY(Config.DEFAULT_Y);
 		player2.setGame(this);
 		player1.setGame(this);
 		if (player1 instanceof MouseListener)

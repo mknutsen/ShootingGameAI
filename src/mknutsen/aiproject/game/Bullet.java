@@ -92,11 +92,6 @@ public class Bullet extends GraphicObject implements Comparable<GraphicObject> {
     }
 
     @Override
-    public void setY(int y) {
-
-    }
-
-    @Override
     public boolean draw(Graphics gr) {
         if (getX() < windowWidth && getX() > 0) {
             if (getImage() == null) {

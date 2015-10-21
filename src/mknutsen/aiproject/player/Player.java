@@ -65,10 +65,10 @@ public abstract class Player extends GraphicObject {
      */
     private void getInside() {
         if (getY() < 0) {
-            setY(0);
+            setGoalY(0);
         }
         if (getY() + getHeight() > windowHeight) {
-            setY(windowHeight - getHeight());
+            setGoalY(windowHeight - getHeight());
         }
     }
 
@@ -121,7 +121,7 @@ public abstract class Player extends GraphicObject {
 
     @Override
     public boolean draw(Graphics gr) {
-        int alpha = getImage() == null ? 255: 0;
+        int alpha = getImage() == null ? 255 : 0;
         Color color;
         if (frozen) {
             color = new Color(0, 0, 255, alpha);
@@ -278,7 +278,7 @@ public abstract class Player extends GraphicObject {
      * @param goalY
      *         the goal Y location.
      */
-    public void setY(int goalY) {
+    public void setGoalY(int goalY) {
         goalY = goalY > 0 ? goalY : 0;
         this.goalY = goalY < windowHeight ? goalY : windowHeight;
     }

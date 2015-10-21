@@ -35,7 +35,7 @@ public class MousePlayer extends Player implements MouseListener,
 
 	@Override
 	public void mouseMoved(final MouseEvent e) {
-		setY(e.getY() - getHeight() / 2);
+		setGoalY(e.getY() - getHeight() / 2);
 	}
 
 	@Override

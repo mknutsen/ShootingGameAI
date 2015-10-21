@@ -24,10 +24,8 @@ public class Avoidance extends MovementArchitype {
 	public void run() {
 		while (isRoutineOn()) {
 			getPlayer()
-					.setY(getPlayer().getOpponent().getY()
-							+ getPlayer().getOpponent().getHeight() / 2 > (getPlayer()
-							.getWindowHeight() / 2) ? 0 : getPlayer()
-							.getWindowHeight());
+					.setGoalY(getPlayer().getOpponent().getY() + getPlayer().getOpponent().getHeight() / 2 >
+									  (getPlayer().getWindowHeight() / 2) ? 0 : getPlayer().getWindowHeight());
 			chill();
 		}
 	}

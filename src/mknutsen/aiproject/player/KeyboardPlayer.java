@@ -70,13 +70,13 @@ public class KeyboardPlayer extends Player implements KeyListener {
 	private void move(KeyEvent e) {
 		if ((getGoal() > getY() && e.getKeyCode() == upKey)
 				|| (getGoal() < getY() && e.getKeyCode() == downKey)) {
-			setY(getY());
+			setGoalY(getY());
 		}
 		if (Math.abs(getGoal() - getY()) < Config.KB_THRESHOLD) {
 			if (e.getKeyCode() == upKey) {
-				setY(getGoal() - Config.KB_MOVE_PER_CLICK);
+				setGoalY(getGoal() - Config.KB_MOVE_PER_CLICK);
 			} else if (e.getKeyCode() == downKey) {
-				setY(getGoal() + Config.KB_MOVE_PER_CLICK);
+				setGoalY(getGoal() + Config.KB_MOVE_PER_CLICK);
 			}
 		}
 		if (e.getKeyCode() == shootKey) {
